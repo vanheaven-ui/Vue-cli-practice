@@ -1,6 +1,6 @@
 <template>
   <h2>My First Vue App :)</h2>
-  <button @click="toggleModal">Show Modal</button>
+  <button @click.alt="toggleModal">Show Modal(alt)</button>
   <button @click="toggleModalTwo">Show ModalTwo</button>
   <teleport to=".modals" v-if="showModal">
     <Modal @close="toggleModal" theme="sale">
