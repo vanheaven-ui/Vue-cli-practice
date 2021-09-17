@@ -1,6 +1,7 @@
 <template>
   <h2>My First Vue App :)</h2>
-  <Modal />
+  <button @click="toggleModal">Show Modal</button>
+  <Modal v-if="showModal" />
 </template>
 
 <script>
@@ -8,6 +9,16 @@ import Modal from "./components/Modal.vue";
 export default {
   name: "App",
   components: { Modal },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+  },
 };
 </script>
 
