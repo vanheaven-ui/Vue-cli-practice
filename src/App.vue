@@ -1,7 +1,14 @@
 <template>
   <h2>My First Vue App :)</h2>
   <button @click="toggleModal">Show Modal</button>
-  <Modal v-if="showModal" @close="toggleModal" theme="sale" />
+  <Modal v-if="showModal" @close="toggleModal" theme="sale">
+    <h1>Ninja Giveaway!</h1>
+    <p>Get your Ninja swag at half price</p>
+    <template v-slot:links>
+      <a href="#">Signup Now</a>
+      <a href="#">More info...</a>
+    </template>
+  </Modal>
 </template>
 
 <script>
