@@ -1,7 +1,7 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
-    <div class="modal">
-      <h2>Modal Title</h2>
+    <div class="modal" :class="{ sale: theme === 'sale' }">
+      <h1>Modal Title</h1>
       <p>Modal content</p>
     </div>
   </div>
@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  props: ["theme"],
   emits: ["close"],
   methods: {
     closeModal() {
@@ -34,5 +35,10 @@ export default {
   text-align: center;
   background-color: white;
   border-radius: 10px;
+}
+
+.modal.sale {
+  background-color: crimson;
+  color: white;
 }
 </style>

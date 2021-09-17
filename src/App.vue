@@ -1,7 +1,7 @@
 <template>
   <h2>My First Vue App :)</h2>
   <button @click="toggleModal">Show Modal</button>
-  <Modal v-if="showModal" @close="toggleModal" />
+  <Modal v-if="showModal" @close="toggleModal" theme="sale" />
 </template>
 
 <script>
