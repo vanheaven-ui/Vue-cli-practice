@@ -1,14 +1,23 @@
 <template>
   <h2>My First Vue App :)</h2>
   <button @click="toggleModal">Show Modal</button>
-  <Modal v-if="showModal" @close="toggleModal" theme="sale">
-    <h1>Ninja Giveaway!</h1>
-    <p>Get your Ninja swag at half price</p>
-    <template v-slot:links>
-      <a href="#">Signup Now</a>
-      <a href="#">More info...</a>
-    </template>
-  </Modal>
+  <button @click="toggleModalTwo">Show ModalTwo</button>
+  <div v-if="showModal">
+    <Modal @close="toggleModal" theme="sale">
+      <h1>Ninja Giveaway!</h1>
+      <p>Get your Ninja swag at half price</p>
+      <template v-slot:links>
+        <a href="#">Signup Now</a>
+        <a href="#">More info...</a>
+      </template>
+    </Modal>
+  </div>
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <h1>Signup to the newsletter</h1>
+      <p>For pomos and latest news</p>
+    </Modal>
+  </div>
 </template>
 
 <script>
@@ -19,11 +28,15 @@ export default {
   data() {
     return {
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
