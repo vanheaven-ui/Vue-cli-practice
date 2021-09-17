@@ -2,7 +2,7 @@
   <h2>My First Vue App :)</h2>
   <button @click="toggleModal">Show Modal</button>
   <button @click="toggleModalTwo">Show ModalTwo</button>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal @close="toggleModal" theme="sale">
       <h1>Ninja Giveaway!</h1>
       <p>Get your Ninja swag at half price</p>
@@ -11,13 +11,13 @@
         <a href="#">More info...</a>
       </template>
     </Modal>
-  </div>
-  <div v-if="showModalTwo">
+  </teleport>
+  <teleport to=".modals" v-if="showModalTwo">
     <Modal @close="toggleModalTwo">
       <h1>Signup to the newsletter</h1>
       <p>For pomos and latest news</p>
     </Modal>
-  </div>
+  </teleport>
 </template>
 
 <script>
@@ -43,7 +43,8 @@ export default {
 </script>
 
 <style>
-#app {
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
